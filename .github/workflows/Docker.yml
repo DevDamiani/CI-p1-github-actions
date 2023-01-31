@@ -22,6 +22,11 @@ jobs:
         username: ${{ secrets.USER_DOCKER_HUB }}
         password: ${{ secrets.PASSWORD_DOCKER_HUB }}
         
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v3.0.2
+      with:
+        name: programa
+        
     - name: Build and push Docker images
       uses: docker/build-push-action@v4.0.0
       with:
